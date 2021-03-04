@@ -64,7 +64,9 @@ class Parse : public Factory {
         			}
            	 	}
 			if(!operation.empty()){
-         			   return nullptr;
+				if(!nums.empty())
+					delete nums.front();
+				return nullptr;
         		}   
 			return nums.front();
         	}
