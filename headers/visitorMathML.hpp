@@ -41,7 +41,7 @@ class VisitorMathML : public Visitor {
 			for (int i = 0; i < indent; ++i) {
 				expression += "\t}";
 			}
-			expression += "</apply>\n";
+			expression += "\t</apply>\n";
 		}
 		void visit_sub_begin(Sub* node) {
 			++indent;
@@ -62,7 +62,7 @@ class VisitorMathML : public Visitor {
 			for (int i = 0; i < indent; ++i) {
 				expression += "\t";
 			}
-			expression += "</apply>\n";
+			expression += "\t</apply>\n";
 		}
 		void visit_mult_begin(Mult* node) {
 			++indent;
@@ -83,7 +83,7 @@ class VisitorMathML : public Visitor {
 			for (int i = 0; i < indent; ++i) {
 				expression += "\t";
 			}
-			expression += "</apply>\n";
+			expression += "\t</apply>\n";
 		}
 		void visit_div_begin(Div* node) {
 			++indent;
@@ -104,7 +104,7 @@ class VisitorMathML : public Visitor {
 			for (int i = 0; i < indent; ++i) {
 				expression += "\t";
 			}
-			expression += "</apply>\n";
+			expression += "\t</apply>\n";
 		}
 		void visit_pow_begin(Pow* node) {
 			++indent;
@@ -125,7 +125,7 @@ class VisitorMathML : public Visitor {
 			for (int i = 0; i < indent; ++i) {
 				expression += "\t";
 			}
-			expression += "</apply>\n";
+			expression += "\t</apply>\n";
 		}
 		std::string getString() { return expression;}
 };
