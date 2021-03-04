@@ -18,9 +18,9 @@ class VisitorLaTeX : public Visitor {
 		void visit_sub_middle(Sub* node) { expression += "-"; }
 		void visit_sub_end(Sub* node) { expression += ")}"; }
 		void visit_mult_begin(Mult* node) { expression += "{("; }
-		void visit_mult_middle(Mult* node) { expression += "\cdot"; }
+		void visit_mult_middle(Mult* node) { expression += "\\cdot"; }
 		void visit_mult_end(Mult* node) { expression += ")}"; }
-		void visit_div_begin(Div* node) { expression += "{\frac"; }
+		void visit_div_begin(Div* node) { expression += "{\\frac"; }
 		void visit_div_middle(Div* node) { }
 		void visit_div_end(Div* node) { expression += "}"; }
 		void visit_pow_begin(Pow* node) { expression += "{("; }
