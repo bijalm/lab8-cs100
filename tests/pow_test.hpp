@@ -85,5 +85,4 @@ TEST(PowTest, PowStringDouble){
 }
 
 
-
 #endif

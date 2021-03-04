@@ -13,6 +13,10 @@ class Sub : public Base {
 			this->lhs = lhs;
 			this->rhs = rhs;
 		}
+		~Sub() {
+			delete lhs;
+			delete rhs;
+		}
 		virtual double evaluate() { return lhs->evaluate() -  rhs->evaluate(); }
 		virtual std::string stringify() { return "(" + lhs->stringify() + " - " + rhs->stringify() + ")";}
 		virtual void accept(Visitor* visitor, int index) {

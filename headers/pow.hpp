@@ -14,6 +14,10 @@ class Pow : public Base {
 			this->lhs = lhs;
 			this->rhs = rhs;
 		}
+		~Pow() {
+			delete lhs;
+			delete rhs;
+		}
 		virtual double evaluate() { //posi expo
 			return pow(lhs->evaluate(), rhs->evaluate());
 		}

@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-// /*
+
 #include "rand_test.hpp"
 #include "pow_test.hpp"
 #include "op_test.hpp"
@@ -11,7 +11,7 @@
 #include "iterator_test.hpp"
 #include "latex_test.hpp"
 #include "mathml_test.hpp"
-// */
+ 
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
