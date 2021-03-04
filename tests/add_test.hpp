@@ -9,6 +9,7 @@ TEST(AddTest, AddEvaluateNonZero) {
     Op* b = new Op(8);
     Add* test = new Add(a,b);
     EXPECT_NEAR(test->evaluate(), 15, 0.001);
+    delete test;
 }
 
 TEST(AddTest, AddEvaluateZero) {
@@ -16,6 +17,7 @@ TEST(AddTest, AddEvaluateZero) {
     Op* b = new Op(0);
     Add* test = new Add(a,b);
     EXPECT_NEAR(test->evaluate(), 7, 0.001);
+    delete test;
 }
 
 TEST(AddTest, AddEvaluateDouble) {
@@ -23,6 +25,7 @@ TEST(AddTest, AddEvaluateDouble) {
     Op* b = new Op(9.555);
     Add* test = new Add(a,b);
     EXPECT_NEAR(test->evaluate(), 11.777, 0.001);
+    delete test;
 }
 
 TEST(AddTest, AddEvaluateNegative) {
@@ -30,6 +33,7 @@ TEST(AddTest, AddEvaluateNegative) {
     Op* b = new Op(178);
     Add* test = new Add(a,b);
     EXPECT_NEAR(test->evaluate(), -7, 0.001);
+    delete test;
 }
 
 TEST(AddTest, AddStringifyNonZero) {
@@ -37,6 +41,7 @@ TEST(AddTest, AddStringifyNonZero) {
     Op* b = new Op(77);
     Add* test = new Add(a,b);
     EXPECT_EQ(test->stringify(), "(12.000000 + 77.000000)");
+    delete test;
 }
 
 TEST(AddTest, AddStringifyNegative) {
@@ -44,6 +49,7 @@ TEST(AddTest, AddStringifyNegative) {
     Op* b = new Op(-87);
     Add* test = new Add(a,b);
     EXPECT_EQ(test->stringify(), "(-412.000000 + -87.000000)");
+    delete test;
 }
 
 TEST(AddTest, AddStringifyDouble) {
@@ -51,6 +57,7 @@ TEST(AddTest, AddStringifyDouble) {
     Op* b = new Op(74.0234);
     Add* test = new Add(a,b);
     EXPECT_EQ(test->stringify(), "(198.347770 + 74.023400)");
+    delete test;
 }
 
 #endif
