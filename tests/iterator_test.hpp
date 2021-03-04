@@ -16,11 +16,11 @@ TEST(FunctionTest, AddGetChild)
         Base *add = new Add(one,three);
 
         EXPECT_EQ("1.000000", add->get_child(0)->stringify());
-	EXPECT_EQ("3.000000", add->get_child(1)->stringify());
+        EXPECT_EQ("3.000000", add->get_child(1)->stringify());
         EXPECT_EQ(1.000000, add->get_child(0)->evaluate());
         EXPECT_EQ(3.000000, add->get_child(1)->evaluate());
 
-	delete add;
+        delete add;
 }
 
 TEST(FunctionTest, AddNumberOfChildren)
@@ -31,7 +31,7 @@ TEST(FunctionTest, AddNumberOfChildren)
 
         EXPECT_EQ(2, add->number_of_children());
 
-	delete add;
+        delete add;
 }
 
 TEST(FunctionTest, SubGetChild_LeftOperandAdd)
@@ -40,14 +40,13 @@ TEST(FunctionTest, SubGetChild_LeftOperandAdd)
         Base *right = new Op(3);
         Base *sub = new Sub(left, right);
 
-        EXPECT_EQ("(10.125000+5.125000)", sub->get_child(0)->stringify());
+        EXPECT_EQ("(10.125000 + 5.125000)", sub->get_child(0)->stringify());
         EXPECT_EQ("3.000000", sub->get_child(1)->stringify());
         EXPECT_EQ(15.250000, sub->get_child(0)->evaluate());
         EXPECT_EQ(3.000000, sub->get_child(1)->evaluate());
 
         delete sub;
 }
-
 TEST(FunctionTest, SubNumberOfChildren)
 {
         Base *left = new Add(new Op(10.125), new Op(5.125));
@@ -65,12 +64,12 @@ TEST(FunctionTest, MultGetChild_RightOperandSub)
         Base *right = new Sub(new Op(2.25), new Op(-25));
         Base *mult = new Mult(left, right);
 
-        EXPECT_EQ("(10.125000+5.125000)", mult->get_child(0)->stringify());
-        EXPECT_EQ("(2.250000--25.000000)", mult->get_child(1)->stringify());
+        EXPECT_EQ("(10.125000 + 5.125000)", mult->get_child(0)->stringify());
+        EXPECT_EQ("(2.250000 - -25.000000)", mult->get_child(1)->stringify());
         EXPECT_EQ(15.250000, mult->get_child(0)->evaluate());
         EXPECT_EQ(27.25, mult->get_child(1)->evaluate());
-        
-	delete mult;
+
+        delete mult;
 }
 
 TEST(FunctionTest, MultNumberOfChildren)
@@ -90,14 +89,13 @@ TEST(FunctionTest, DivGetChild)
         Base *right = new Mult(new Op(2.25), new Op(-25));
         Base *div = new Div(left, right);
 
-        EXPECT_EQ("(10.125000*5.125000)", div->get_child(0)->stringify());
-        EXPECT_EQ("(2.250000*-25.000000)", div->get_child(1)->stringify());
+        EXPECT_EQ("(10.125000 * 5.125000)", div->get_child(0)->stringify());
+        EXPECT_EQ("(2.250000 * -25.000000)", div->get_child(1)->stringify());
         EXPECT_EQ(51.890625, div->get_child(0)->evaluate());
         EXPECT_EQ(-56.25, div->get_child(1)->evaluate());
 
         delete div;
 }
-
 TEST(FunctionTest, DivNumberOfChildren)
 {
         Base *left = new Mult(new Op(10.125), new Op(5.125));
@@ -115,8 +113,8 @@ TEST(FunctionTest, PowGetChild)
         Base *right = new Add(new Op(2.25), new Op(-2.25));
         Base *pow = new Pow(left, right);
 
-        EXPECT_EQ("(10.125000-5.125000)", pow->get_child(0)->stringify());
-        EXPECT_EQ("(2.250000+-2.250000)", pow->get_child(1)->stringify());
+        EXPECT_EQ("(10.125000 - 5.125000)", pow->get_child(0)->stringify());
+        EXPECT_EQ("(2.250000 + -2.250000)", pow->get_child(1)->stringify());
         EXPECT_EQ(5.000000, pow->get_child(0)->evaluate());
         EXPECT_EQ(0, pow->get_child(1)->evaluate());
 
@@ -125,7 +123,7 @@ TEST(FunctionTest, PowGetChild)
 
 TEST(FunctionTest, PowNumberOfChildren)
 {
-	Base *left = new Sub(new Op(10.125), new Op(5.125));
+        Base *left = new Sub(new Op(10.125), new Op(5.125));
         Base *right = new Add(new Op(2.25), new Op(-2.25));
         Base *pow = new Pow(left, right);
 
