@@ -2,6 +2,7 @@
 #define __FACTORY_HPP__
 
 #include "op.hpp"
+#include "rand.hpp"
 #include "mult.hpp"
 #include "pow.hpp"
 #include "div.hpp"

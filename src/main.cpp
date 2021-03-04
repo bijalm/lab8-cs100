@@ -1,7 +1,8 @@
 #include <iostream>
 
-#include "../headers/print.hpp"
 #include "../headers/parse.hpp"
+#include "../headers/print.hpp"
+
 
 int main(int argv, char** argc) {
 	Factory* factory = new Parse();

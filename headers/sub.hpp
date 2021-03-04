@@ -2,6 +2,7 @@
 #define __SUB_HPP__
 
 #include "op.hpp"
+#include "visitor.hpp"
 
 class Sub : public Base {
 	private:
@@ -22,7 +23,7 @@ class Sub : public Base {
 			else if (index == 2)
 				visitor->visit_sub_end(this);
 		}
-		virtual int number_off_children() { return 2; }
+		virtual int number_of_children() { return 2; }
 		virtual Base* get_child(int i) {
 			if (i == 0)
 				return lhs;

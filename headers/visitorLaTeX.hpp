@@ -1,3 +1,6 @@
+#ifndef __VISITORLATEX_HPP__
+#define __VISITORLATEX_HPP__
+
 #include "visitor.hpp"
 
 class VisitorLaTeX : public Visitor {
@@ -9,7 +12,7 @@ class VisitorLaTeX : public Visitor {
 		void visit_rand(Rand* node) { expression += "{" + node->stringify() + "}"; }
 
 		void visit_add_begin(Add* node) { expression += "{("; }
-		void visit_add_middle(Add( node) { expression += "+"; }
+		void visit_add_middle(Add* node) { expression += "+"; }
 		void visit_add_end(Add* node) { expression += ")}"; }
 		void visit_sub_begin(Sub* node) { expression += "{("; }
 		void visit_sub_middle(Sub* node) { expression += "-"; }
@@ -26,3 +29,5 @@ class VisitorLaTeX : public Visitor {
 
 		std::string getString() { return expression; }
 };
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef __VISITORMATHML_HPP__
+#define __VISITORMATHML_HPP__
+
 #include "visitor.hpp"
 
 class VisitorMathML : public Visitor {
@@ -8,20 +11,20 @@ class VisitorMathML : public Visitor {
 	
 	public:
 		void visit_op(Op* node) {
-			for (int i = 0; i < index; ++i) {
+			for (int i = 0; i < indent; ++i) {
 				expression += "\t";
 			}
 			expression += "<cn>" + node->stringify() + "</cn>\n";
 		}
 		void visit_rand(Rand* node) {
-			for (int i = 0; i < index; ++i) {
+			for (int i = 0; i < indent; ++i) {
 				expression += "\t";
 			}
 			expression += "<cn>" + node->stringify() + "</cn>\n";
 		}
 
 		void visit_add_begin(Add* node) {
-			++index;
+			++indent;
 			for (int i = 0; i < indent; ++i) {
 				expression += "\t";
 			}
@@ -35,7 +38,7 @@ class VisitorMathML : public Visitor {
 		void visit_add_middle(Add* node) { }
 		void visit_add_end(Add* node) {
 			indent -= 2;
-			for (int i = 0; i < index; ++i) {
+			for (int i = 0; i < indent; ++i) {
 				expression += "\t}";
 			}
 			expression += "</apply>\n";
@@ -75,7 +78,7 @@ class VisitorMathML : public Visitor {
 			expression += "<times/>\n";
 		}
 		void visit_mult_middle(Mult* node) { }
-		void visit_mult_end(Mult* node {
+		void visit_mult_end(Mult* node) {
 			indent -= 2;
 			for (int i = 0; i < indent; ++i) {
 				expression += "\t";
@@ -97,7 +100,7 @@ class VisitorMathML : public Visitor {
 		}
 		void visit_div_middle(Div* node) { }
 		void visit_div_end(Div* node) {
-			int -= 2;
+			indent -= 2;
 			for (int i = 0; i < indent; ++i) {
 				expression += "\t";
 			}
@@ -126,3 +129,5 @@ class VisitorMathML : public Visitor {
 		}
 		std::string getString() { return expression;}
 };
+
+#endif

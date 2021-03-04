@@ -2,6 +2,7 @@
 #define __OP_HPP__
 
 #include "base.hpp"
+#include "visitor.hpp"
 #include <string>
 using namespace std;
 
