@@ -12,8 +12,10 @@ class Parse : public Factory {
 		 Base* parse(char** input, int length) {
 			std::queue<Base*> nums;
 			std::stack<char*> operation; 
+			
 			for(int i = 1; i < length; ++i){
 				std::string tmp = input[i];
+
                 		if((tmp == "**") || (tmp == "*") || (tmp == "/") || (tmp == "+") || (tmp == "-") ){
 					operation.push(input[i]);
 //					std::cout << "operation pushed: " << operation.top() << std::endl;
