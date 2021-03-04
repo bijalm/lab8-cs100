@@ -1,0 +1,11 @@
+# CMake files
+CMakeFiles/
+CMakeLists.txt
+Makefile
+cmake_install.cmake
+lib/
+CMakeCache.txt
+
+# Executables
+test
+calculator
