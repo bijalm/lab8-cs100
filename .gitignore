@@ -1,6 +1,5 @@
 # CMake files
 CMakeFiles/
-CMakeLists.txt
 Makefile
 cmake_install.cmake
 lib/
