@@ -1,3 +1,6 @@
+#ifndef __PRINT_HPP__
+#define __PRINT_HPP__
+
 #include "visitorLaTeX.hpp"
 #include "visitorMathML.hpp"
 #include "iterator.hpp"
@@ -7,11 +10,11 @@
 
 std::string print_latex(Base* ptr) {
 	VisitorLaTeX* visitor = new VisitorLaTeX();
-	Iterator iterator(ptr);
+	Iterator jorge(ptr);
 	
-	while(!iterator.is_done()) {
-		iterator.current_node()->accept(visitor, iterator.current_index());
-		iterator.next();
+	while(!jorge.is_done()) {
+		jorge.current_node()->accept(visitor, jorge.current_index());
+		jorge.next();
 	}
 	
 	std::string result;
@@ -22,11 +25,11 @@ std::string print_latex(Base* ptr) {
 
 std::string print_mathML(Base* ptr) {
 	VisitorMathML* visitor = new VisitorMathML();
-	Iterator iterator(ptr);
+	Iterator jorge(ptr);
 	
-	while(!iterator.is_done()) {
-		iterator.current_node()->accept(visitor, iterator.current_index());
-		iterator.next();
+	while(!jorge.is_done()) {
+		jorge.current_node()->accept(visitor, jorge.current_index());
+		jorge.next();
 	}
 
 	std::string result;
@@ -34,3 +37,5 @@ std::string print_mathML(Base* ptr) {
 	delete visitor;
 	return result;
 }
+
+#endif

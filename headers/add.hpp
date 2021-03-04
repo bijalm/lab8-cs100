@@ -2,6 +2,7 @@
 #define __ADD_HPP__
 
 #include "op.hpp"
+#include "visitor.hpp"
 
 class Add : public Base {
     private:
